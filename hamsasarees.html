@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hamsa Sarees</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#000000,#7a0000,#000000);
+    color:white;
+    text-align:center;
+    overflow:hidden;
+}
+
+.container{
+    background:rgba(0,0,0,0.75);
+    padding:50px 35px;
+    border-radius:20px;
+    box-shadow:0 0 40px rgba(255,0,0,0.45);
+    width:90%;
+    max-width:450px;
+    animation:fadeIn 1.2s ease;
+}
+
+h1{
+    font-size:38px;
+    margin-bottom:15px;
+    color:#fff;
+}
+
+p{
+    color:#ddd;
+    margin-bottom:30px;
+    font-size:17px;
+}
+
+.btn{
+    width:100%;
+    padding:18px;
+    margin:12px 0;
+    border:none;
+    border-radius:10px;
+    font-size:20px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.subscribe-btn{
+    background:#ff0000;
+    color:white;
+    box-shadow:0 8px 20px rgba(255,0,0,0.5);
+}
+
+.subscribe-btn:hover{
+    transform:scale(1.05);
+    background:#cc0000;
+}
+
+.continue-btn{
+    background:#333;
+    color:white;
+}
+
+.continue-btn:hover{
+    transform:scale(1.03);
+    background:#555;
+}
+
+.footer{
+    margin-top:20px;
+    font-size:14px;
+    color:#aaa;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Hamsa Sarees</h1>
+    <p>Subscribe to unlock our exclusive saree collections</p>
+
+    <button class="btn subscribe-btn" onclick="subscribeNow()">
+        SUBSCRIBE NOW
+    </button>
+
+    <button class="btn continue-btn" onclick="continueAccess()">
+        I ALREADY SUBSCRIBED
+    </button>
+
+    <div class="footer">
+        Official YouTube Channel Access
+    </div>
+</div>
+
+<script>
+
+// ===== WEBSITE URL =====
+const WEBSITE_URL = "https://hamsasarees.github.io";
+
+// ===== SUBSCRIBE BUTTON =====
+function subscribeNow(){
+    window.open(
+        "https://www.youtube.com/@hamsasarees?sub_confirmation=1",
+        "_blank"
+    );
+
+    localStorage.setItem("hamsaAccess","true");
+
+    setTimeout(()=>{
+        window.location.href = WEBSITE_URL;
+    },2000);
+}
+
+// ===== CONTINUE BUTTON =====
+function continueAccess(){
+    localStorage.setItem("hamsaAccess","true");
+    window.location.href = WEBSITE_URL;
+}
+
+// ===== AUTO ACCESS =====
+window.onload = function(){
+    if(localStorage.getItem("hamsaAccess")==="true"){
+        window.location.href = WEBSITE_URL;
+    }
+}
+
+</script>
+
+</body>
+</html>
